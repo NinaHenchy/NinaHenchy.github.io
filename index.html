@@ -3,67 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nnenna Henchard — Industrial Data Scientist specialising in predictive maintenance, reliability analytics, and HSE intelligence for Oil & Gas operations.">
-    <meta name="keywords" content="industrial data scientist, predictive maintenance, reliability analytics, oil gas analytics, HSE analytics, Python, Streamlit, machine learning, MTBF, ISO 14224, API RP 754">
-    <meta property="og:title" content="Nnenna Henchard | Industrial Data Scientist">
-    <meta property="og:description" content="Predictive maintenance and HSE analytics platforms for Oil & Gas. ROC-AUC 0.9381. ISO 14224 aligned.">
-    <meta property="og:url" content="https://ninahenchy.github.io">
+
+    <!-- Primary SEO -->
     <title>Nnenna Henchard | Industrial Data Scientist</title>
+    <meta name="description" content="Industrial Data Scientist specialising in predictive maintenance, reliability analytics, and HSE intelligence for Oil & Gas. ROC-AUC 0.9381. ISO 14224 aligned. Based in Lagos, Nigeria.">
+    <meta name="keywords" content="industrial data scientist Nigeria, predictive maintenance oil gas Python, reliability analytics engineer, HSE analytics platform, ISO 14224 data science, TRIR LTIR analytics dashboard, Nnenna Henchard">
+    <meta name="author" content="Nnenna Henchard">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nnenna Henchard | Industrial Data Scientist">
+    <meta property="og:description" content="Predictive maintenance and HSE analytics platforms for Oil & Gas. ROC-AUC 0.9381. ISO 14224 aligned. Built in Python, Streamlit, Docker.">
+    <meta property="og:image" content="https://ninahenchy.github.io/dashboard_preview.png">
+    <meta property="og:url" content="https://ninahenchy.github.io">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nnenna Henchard | Industrial Data Scientist">
+    <meta name="twitter:description" content="Predictive maintenance and HSE analytics platforms for Oil & Gas. ROC-AUC 0.9381. ISO 14224 aligned.">
+    <meta name="twitter:image" content="https://ninahenchy.github.io/dashboard_preview.png">
+
     <style>
         :root {
             --primary: #0d4f6e;
-            --accent: #0d9488;
-            --text: #1a1a2e;
-            --bg: #f8fafc;
-            --card: #ffffff;
+            --accent:  #0d9488;
+            --text:    #1a1a2e;
+            --bg:      #f8fafc;
+            --card:    #ffffff;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .hero { background: linear-gradient(135deg, #0d2b45 0%, #0d4f6e 100%); color: white; padding: 80px 40px; text-align: center; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
-        .hero p { font-size: 1.1rem; opacity: 0.85; max-width: 700px; margin: 0 auto 24px; }
-        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 700; text-decoration: none; margin: 6px; font-size: 0.95rem; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; }
+        .hero .tagline { font-size: 1.1rem; opacity: 0.85; max-width: 680px; margin: 0 auto 10px; }
+        .hero .location { font-size: 0.9rem; opacity: 0.65; margin-bottom: 28px; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 700; text-decoration: none; margin: 6px; font-size: 0.95rem; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.85; }
         .btn-primary { background: #0d9488; color: white; }
         .btn-outline { border: 2px solid white; color: white; }
         .stats { display: flex; justify-content: center; gap: 60px; padding: 28px 40px; background: #0d3a56; color: white; flex-wrap: wrap; }
         .stat { text-align: center; }
-        .stat-num { font-size: 2rem; font-weight: 900; color: #0d9488; }
+        .stat-num   { font-size: 2rem; font-weight: 900; color: #0d9488; }
         .stat-label { font-size: 0.75rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.08em; }
         .section { padding: 70px 40px; max-width: 1100px; margin: 0 auto; }
         .section-title { font-size: 1.6rem; font-weight: 800; color: var(--primary); border-left: 4px solid var(--accent); padding-left: 16px; margin-bottom: 30px; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .about-grid p { margin-bottom: 14px; color: #2d3748; font-size: 0.95rem; }
+        .about-list { list-style: none; font-size: 0.92rem; line-height: 2.4; }
+        .screenshot-wrap { text-align: center; margin: 30px 0; }
+        .screenshot-wrap img { width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 8px 32px rgba(13,79,110,0.18); border: 2px solid #dde1e7; }
+        .screenshot-caption { font-size: 0.82rem; color: #718096; margin-top: 10px; }
         .projects { background: #f1f5f9; padding: 70px 40px; }
         .projects-inner { max-width: 1100px; margin: 0 auto; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 30px; }
         .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border-top: 4px solid var(--accent); }
         .card-body { padding: 24px; }
         .card-title { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
-        .card-desc { font-size: 0.9rem; color: #4a5568; margin-bottom: 16px; line-height: 1.6; }
+        .card-desc  { font-size: 0.9rem; color: #4a5568; margin-bottom: 16px; line-height: 1.6; }
         .card-metric { font-size: 1.5rem; font-weight: 900; color: var(--accent); }
         .card-metric-label { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; }
         .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
-        .tag { background: #e0f2fe; color: var(--primary); padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .tag  { background: #e0f2fe; color: var(--primary); padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
         .card-links { display: flex; gap: 10px; margin-top: 16px; }
-        .card-link { padding: 8px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
-        .link-demo { background: var(--accent); color: white; }
+        .card-link  { padding: 8px 18px; border-radius: 5px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+        .link-demo   { background: var(--accent); color: white; }
         .link-github { border: 2px solid var(--primary); color: var(--primary); }
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 24px; }
         .skill { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; text-align: center; font-size: 0.82rem; font-weight: 600; color: var(--primary); }
+        .standards { background: #0d4f6e; padding: 50px 40px; color: white; }
+        .standards-inner { max-width: 1100px; margin: 0 auto; }
+        .standards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 24px; }
+        .standard-card { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 20px; border: 1px solid rgba(255,255,255,0.15); }
+        .standard-code { font-size: 1.1rem; font-weight: 800; color: #0d9488; margin-bottom: 6px; }
+        .standard-desc { font-size: 0.85rem; opacity: 0.8; line-height: 1.5; }
         .contact { background: var(--primary); color: white; padding: 70px 40px; text-align: center; }
-        .contact a { color: #0d9488; text-decoration: none; }
+        .contact p { opacity: 0.85; max-width: 580px; margin: 0 auto 28px; font-size: 1rem; }
+        .contact a { color: #0d9488; text-decoration: none; font-weight: 600; }
         .contact a:hover { text-decoration: underline; }
-        @media(max-width: 768px) { .hero h1 { font-size: 1.9rem; } .about-grid { grid-template-columns: 1fr; } .stats { gap: 30px; } }
+        .contact-links { font-size: 1.05rem; }
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats { gap: 30px; }
+            .section { padding: 50px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <section class="hero">
     <h1>Nnenna Henchard</h1>
-    <p>Industrial Data Scientist · Predictive Maintenance · Reliability Analytics · HSE Intelligence · Oil & Gas</p>
-    <p style="font-size:0.95rem;opacity:0.7;margin-bottom:28px;">
-        Industrial Chemist turned Data Scientist. I build production-grade analytics systems for Oil & Gas — predictive maintenance, reliability intelligence, safety culture prediction.
-    </p>
-    <a href="https://orpmi-platform-ninahenchy.streamlit.app/" class="btn btn-primary" target="_blank">🔧 View ORPMI Demo</a>
+    <p class="tagline">Industrial Data Scientist · Predictive Maintenance · Reliability Analytics · HSE Intelligence · Oil &amp; Gas</p>
+    <p class="location">📍 Lagos, Nigeria · Open to remote and international engagements</p>
+    <a href="https://orpmi-platform-ninahenchy.streamlit.app/" class="btn btn-primary" target="_blank">⚙️ View ORPMI Demo</a>
     <a href="https://github.com/NinaHenchy" class="btn btn-outline" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/nnenna-henchard" class="btn btn-outline" target="_blank">LinkedIn</a>
 </section>
@@ -73,45 +106,50 @@
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">Production Platforms</div></div>
     <div class="stat"><div class="stat-num">24</div><div class="stat-label">Dashboard Pages</div></div>
     <div class="stat"><div class="stat-num">124</div><div class="stat-label">Automated Tests</div></div>
-    <div class="stat"><div class="stat-num">ISO 14224</div><div class="stat-label">Standards Aligned</div></div>
+    <div class="stat"><div class="stat-num">4,700+</div><div class="stat-label">Database Records</div></div>
 </div>
 
 <section class="section">
     <h2 class="section-title">About</h2>
     <div class="about-grid">
         <div>
-            <p style="margin-bottom:16px;">I come from industrial operations — Oil & Gas, HSE, Industrial Chemistry — and I have fully transitioned into applied data science. That means I can build the model AND understand what the output means on the plant floor.</p>
-            <p style="margin-bottom:16px;">Most data scientists need a reliability engineer to explain what MTBF means or why vibration slope matters more than amplitude. I already know. That's the difference.</p>
-            <p>I build production-grade analytics platforms aligned to ISO 14224, API RP 754, and ISO 45001 — deployed on Docker and Streamlit Cloud, with automated test suites.</p>
+            <p>I come from industrial operations — Oil &amp; Gas, HSE, Industrial Chemistry — and have fully transitioned into applied data science. That means I can build the model and understand what the output means on the plant floor.</p>
+            <p>As an industrial data scientist based in Lagos, Nigeria, I specialise in predictive maintenance for Oil &amp; Gas Python analytics, reliability analytics engineering, and HSE analytics platforms for the energy sector.</p>
+            <p>Most data scientists need a reliability engineer to explain what MTBF means or why vibration slope matters more than amplitude. I already know. That is the difference.</p>
+            <p>I build production-grade analytics platforms aligned to ISO 14224 data science standards, API RP 754, and ISO 45001 — deployed on Docker and Streamlit Cloud, with TRIR LTIR analytics dashboards and automated test suites.</p>
         </div>
         <div>
-            <h3 style="color:var(--primary);margin-bottom:14px;">Background</h3>
-            <ul style="list-style:none;font-size:0.92rem;line-height:2.4;">
-                <li>🧪 Industrial Chemist — Oil & Gas Operations</li>
+            <h3 style="color:var(--primary);margin-bottom:14px;font-weight:700;">Background</h3>
+            <ul class="about-list">
+                <li>🧪 Industrial Chemist — Oil &amp; Gas Operations</li>
                 <li>🦺 HSE Certified Professional</li>
                 <li>🤖 Applied Data Scientist (current)</li>
                 <li>🐍 Python · SQL · ML · Streamlit · Docker</li>
                 <li>📐 ISO 14224 · API RP 754 · ISO 45001</li>
-                <li>📍 Lagos, Nigeria · International engagements welcome</li>
+                <li>📍 Lagos, Nigeria · Open to remote/relocation</li>
             </ul>
         </div>
+    </div>
+    <div class="screenshot-wrap">
+        <img src="dashboard_preview.png" alt="ORPMI Platform — Predictive Maintenance Dashboard — Industrial Data Scientist Nigeria">
+        <p class="screenshot-caption">ORPMI Platform — Asset Health Monitor · 6 production assets · ISO 14224 aligned · Streamlit · Python</p>
     </div>
 </section>
 
 <section class="projects">
     <div class="projects-inner">
         <h2 class="section-title">Portfolio — OPC-Alpha Facility Analytics</h2>
-        <p style="color:#4a5568;margin-bottom:8px;">Three production-grade platforms on one offshore facility. Equipment reliability + HSE incident analytics + safety culture prediction.</p>
+        <p style="color:#4a5568;margin-bottom:8px;font-size:0.95rem;">Three production-grade platforms on one offshore facility covering equipment reliability, HSE incident analytics, and safety culture prediction.</p>
         <div class="card-grid">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">🔧 ORPMI Platform</div>
-                    <p class="card-desc">Operational Reliability & Predictive Maintenance Intelligence. 10-page dashboard monitoring 6 production assets. ML model predicts equipment failure 30 days ahead. 76 automated tests.</p>
+                    <div class="card-title">⚙️ ORPMI Platform</div>
+                    <p class="card-desc">Operational Reliability &amp; Predictive Maintenance Intelligence. 10-page dashboard monitoring 6 production assets. ML model predicts equipment failure 30 days ahead. 76 automated tests passing.</p>
                     <div class="card-metric">ROC-AUC 0.9381</div>
                     <div class="card-metric-label">Predictive Model Performance</div>
                     <div class="tags">
                         <span class="tag">ISO 14224</span><span class="tag">Predictive Maintenance</span>
-                        <span class="tag">MTBF/MTTR</span><span class="tag">Random Forest</span><span class="tag">Docker</span>
+                        <span class="tag">MTBF / MTTR</span><span class="tag">Random Forest</span><span class="tag">Docker</span>
                     </div>
                     <div class="card-links">
                         <a href="https://orpmi-platform-ninahenchy.streamlit.app/" class="card-link link-demo" target="_blank">Live Demo</a>
@@ -122,12 +160,12 @@
             <div class="card" style="border-top-color:#c0392b;">
                 <div class="card-body">
                     <div class="card-title">🛡️ HSEI Platform</div>
-                    <p class="card-desc">HSE Incident Analytics & Process Safety Intelligence. 8-page dashboard. API RP 754 Tier 1–4 classification. ISO 45001 aligned. NUPRC/NOSDRA Nigerian regulatory framework. 29 automated tests.</p>
+                    <p class="card-desc">HSE Incident Analytics &amp; Process Safety Intelligence. 8-page HSE analytics platform aligned to API RP 754 Tier 1–4, ISO 45001, and NUPRC/NOSDRA. TRIR LTIR analytics dashboard. 29 automated tests passing.</p>
                     <div class="card-metric">217 Incidents</div>
                     <div class="card-metric-label">Annual Incident Register</div>
                     <div class="tags">
                         <span class="tag">API RP 754</span><span class="tag">ISO 45001</span>
-                        <span class="tag">TRIR/LTIR</span><span class="tag">NUPRC</span><span class="tag">Process Safety</span>
+                        <span class="tag">TRIR / LTIR</span><span class="tag">NUPRC</span><span class="tag">Process Safety</span>
                     </div>
                     <div class="card-links">
                         <a href="https://hsei-platform-ninahenchy.streamlit.app/" class="card-link link-demo" style="background:#c0392b;" target="_blank">Live Demo</a>
@@ -138,12 +176,12 @@
             <div class="card" style="border-top-color:#0d7377;">
                 <div class="card-body">
                     <div class="card-title">🎯 HSIP Platform</div>
-                    <p class="card-desc">HSE Incident Prediction & Safety Culture Intelligence. 6-page dashboard. Predicts LTI probability 30 days ahead from Safety Culture Index. Gradient Boosting + Isotonic Calibration. 19 automated tests.</p>
+                    <p class="card-desc">HSE Incident Prediction &amp; Safety Culture Intelligence. 6-page dashboard predicting LTI probability 30 days ahead from Safety Culture Index. Gradient Boosting across 11 departments. 19 automated tests passing.</p>
                     <div class="card-metric">11 Departments</div>
                     <div class="card-metric-label">Weekly Safety Intelligence</div>
                     <div class="tags">
                         <span class="tag">Safety Culture Index</span><span class="tag">LTI Prediction</span>
-                        <span class="tag">Gradient Boosting</span><span class="tag">Leading Indicators</span>
+                        <span class="tag">Gradient Boosting</span><span class="tag">Leading Indicators</span><span class="tag">ISO 45001</span>
                     </div>
                     <div class="card-links">
                         <a href="https://hsip-platform-ninahenchy.streamlit.app/" class="card-link link-demo" style="background:#0d7377;" target="_blank">Live Demo</a>
@@ -171,14 +209,39 @@
     </div>
 </section>
 
+<section class="standards">
+    <div class="standards-inner">
+        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:6px;">Industry Standards Alignment</h2>
+        <p style="opacity:0.75;font-size:0.9rem;margin-bottom:0;">Every platform is built to international Oil &amp; Gas and safety standards — not generic analytics tools.</p>
+        <div class="standards-grid">
+            <div class="standard-card">
+                <div class="standard-code">ISO 14224</div>
+                <div class="standard-desc">Reliability and maintenance data for Oil &amp; Gas equipment. ORPMI database schema fully aligned.</div>
+            </div>
+            <div class="standard-card">
+                <div class="standard-code">API RP 754</div>
+                <div class="standard-desc">Process Safety Performance Indicators — Tier 1–4 event classification. Implemented in HSEI platform.</div>
+            </div>
+            <div class="standard-card">
+                <div class="standard-code">ISO 45001</div>
+                <div class="standard-desc">Occupational Health &amp; Safety Management. Aligned across HSEI and HSIP platforms.</div>
+            </div>
+            <div class="standard-card">
+                <div class="standard-code">ISO 10816</div>
+                <div class="standard-desc">Vibration severity zone classification — Zones A through D. Applied in ORPMI sensor trends.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="contact">
-    <h2 style="font-size:1.8rem;margin-bottom:14px;">Let's Connect</h2>
-    <p style="opacity:0.85;max-width:580px;margin:0 auto 28px;">
-        Industrial Data Scientist working at the intersection of O&G operations and applied data science. Open to conversations about industrial analytics, digital reliability, and where the space is heading.
-    </p>
-    <p style="font-size:1.05rem;">
-        <a href="https://linkedin.com/in/nnenna-henchard">LinkedIn</a> &nbsp;·&nbsp;
-        <a href="https://github.com/NinaHenchy">GitHub</a> &nbsp;·&nbsp;
+    <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:14px;">Let's Connect</h2>
+    <p>Industrial Data Scientist working at the intersection of Oil &amp; Gas operations and applied data science. Open to conversations about industrial analytics, digital reliability, and where the space is heading.</p>
+    <p class="contact-links">
+        <a href="https://linkedin.com/in/nnenna-henchard">LinkedIn</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/NinaHenchy">GitHub</a>
+        &nbsp;·&nbsp;
         <a href="mailto:ninahenchard@gmail.com">Email</a>
     </p>
 </section>
