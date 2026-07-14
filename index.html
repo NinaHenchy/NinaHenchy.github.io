@@ -82,9 +82,11 @@
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
       padding: 100px 60px 80px;
+      gap: 60px;
       position: relative;
       overflow: hidden;
     }
@@ -97,9 +99,45 @@
         radial-gradient(ellipse at 10% 80%, rgba(212,160,23,.07) 0%, transparent 45%);
       pointer-events: none;
     }
-    .hero-content { max-width: 680px; position: relative; }
+    .hero-content { position: relative; }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hv-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+    }
+    .hv-card.orpmi::before { background: var(--teal); }
+    .hv-card.hsei::before  { background: var(--gold); }
+    .hv-card.hsip::before  { background: var(--green); }
+    .hv-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .hv-card-name { font-size: 13px; font-weight: 800; color: var(--text); }
+    .hv-card-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .hv-card-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge-live { background: rgba(6,214,160,.15); color: var(--green); }
+    .hv-metrics { display: flex; gap: 20px; }
+    .hv-metric-v { font-size: 20px; font-weight: 900; line-height: 1; }
+    .hv-metric-l { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin-top: 3px; }
+    .hv-card.orpmi .hv-metric-v { color: var(--teal); }
+    .hv-card.hsei  .hv-metric-v { color: var(--gold); }
+    .hv-card.hsip  .hv-metric-v { color: var(--green); }
+    .hv-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .hv-tag { font-size: 10px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--border); color: var(--dim); }
     .hero-tag {
-      font-size: 11px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -152,6 +190,34 @@
     .hero-stats { display: flex; gap: 40px; }
     .hs-n { font-size: 32px; font-weight: 900; color: var(--teal); line-height: 1; }
     .hs-l { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+
+    /* Hero right panel */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+    .hero-platform-preview {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      transition: transform .2s, border-color .2s;
+    }
+    .hero-platform-preview:hover {
+      transform: translateX(4px);
+      border-color: var(--teal);
+    }
+    .hpp-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .hpp-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .hpp-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+    .hpp-desc { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    .hpp-metrics { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hpp-metric { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; background: rgba(30,58,95,.6); color: var(--muted); border: 1px solid var(--border); }
+    .hpp-metric.highlight { color: var(--teal); border-color: rgba(0,180,216,.3); background: rgba(0,180,216,.08); }
+    .hpp-metric.gold { color: var(--gold); border-color: rgba(212,160,23,.3); background: rgba(212,160,23,.08); }
+    .hpp-metric.green { color: var(--green); border-color: rgba(6,214,160,.3); background: rgba(6,214,160,.08); }
 
     /* ── Sections ── */
     section { padding: 90px 60px; }
@@ -422,7 +488,8 @@
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero { padding: 100px 24px 60px; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 32px; }
+      .hero-visual { display: none; }
       section { padding: 64px 24px; }
       .hero-stats { gap: 24px; }
       .pc-metrics { grid-template-columns: repeat(2, 1fr); }
@@ -454,7 +521,7 @@
       15 Years O&G Operations · Predictive Maintenance · HSE Analytics · 3 Live Industrial AI Platforms
     </div>
     <div class="hero-desc">
-      O&G operations and HSE professional with 15+ years of field experience — now fully applied to reliability data science and industrial AI. I build production-grade analytics platforms that combine deep domain knowledge with machine learning, deployed on Docker and Streamlit Cloud.
+      I build production-grade industrial analytics platforms that combine O&amp;G field operations and HSE expertise with machine learning — deployed on Docker and Streamlit Cloud, aligned to ISO 14224, API RP 754, and ISO 45001.
     </div>
     <div class="hero-cta">
       <a href="#platforms" class="btn-primary">Explore Platforms</a>
@@ -467,6 +534,122 @@
       <div><div class="hs-n">0.9381</div><div class="hs-l">ROC-AUC (ORPMI)</div></div>
     </div>
   </div>
+
+  <!-- Hero Visual Panel -->
+  <div class="hero-visual">
+
+    <div class="hv-card orpmi">
+      <div class="hv-card-top">
+        <div>
+          <div class="hv-card-name">⚙ ORPMI</div>
+          <div class="hv-card-desc">Operational Reliability &amp; Predictive Maintenance</div>
+        </div>
+        <span class="hv-card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="hv-metrics">
+        <div><div class="hv-metric-v">0.9381</div><div class="hv-metric-l">ROC-AUC</div></div>
+        <div><div class="hv-metric-v">80</div><div class="hv-metric-l">Features</div></div>
+        <div><div class="hv-metric-v">76 ✅</div><div class="hv-metric-l">Tests</div></div>
+      </div>
+      <div class="hv-tags">
+        <span class="hv-tag">ISO 14224</span>
+        <span class="hv-tag">Random Forest</span>
+        <span class="hv-tag">Temporal Validation</span>
+        <span class="hv-tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="hv-card hsei">
+      <div class="hv-card-top">
+        <div>
+          <div class="hv-card-name">🛡 HSEI</div>
+          <div class="hv-card-desc">HSE Incident Analytics &amp; Process Safety</div>
+        </div>
+        <span class="hv-card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="hv-metrics">
+        <div><div class="hv-metric-v">8</div><div class="hv-metric-l">Pages</div></div>
+        <div><div class="hv-metric-v">Tier 1–4</div><div class="hv-metric-l">API RP 754</div></div>
+        <div><div class="hv-metric-v">29 ✅</div><div class="hv-metric-l">Tests</div></div>
+      </div>
+      <div class="hv-tags">
+        <span class="hv-tag">API RP 754</span>
+        <span class="hv-tag">ISO 45001</span>
+        <span class="hv-tag">NUPRC</span>
+        <span class="hv-tag">NOSDRA</span>
+      </div>
+    </div>
+
+    <div class="hv-card hsip">
+      <div class="hv-card-top">
+        <div>
+          <div class="hv-card-name">🎯 HSIP</div>
+          <div class="hv-card-desc">Safety Culture &amp; LTI Prediction</div>
+        </div>
+        <span class="hv-card-badge badge-live">● LIVE</span>
+      </div>
+      <div class="hv-metrics">
+        <div><div class="hv-metric-v">30-day</div><div class="hv-metric-l">Horizon</div></div>
+        <div><div class="hv-metric-v">11</div><div class="hv-metric-l">Departments</div></div>
+        <div><div class="hv-metric-v">19 ✅</div><div class="hv-metric-l">Tests</div></div>
+      </div>
+      <div class="hv-tags">
+        <span class="hv-tag">Gradient Boosting</span>
+        <span class="hv-tag">Isotonic Calibration</span>
+        <span class="hv-tag">ISO 45001</span>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+  <!-- Hero right — platform previews -->
+  <div class="hero-right">
+    <div class="hero-platform-preview">
+      <div class="hpp-top">
+        <div class="hpp-name">⚙ ORPMI — Predictive Maintenance</div>
+        <span class="hpp-badge badge-orpmi">Live</span>
+      </div>
+      <div class="hpp-desc">Random Forest failure prediction · ISO 14224 schema · 10-page executive dashboard</div>
+      <div class="hpp-metrics">
+        <span class="hpp-metric highlight">ROC-AUC 0.9381</span>
+        <span class="hpp-metric">80 features</span>
+        <span class="hpp-metric">76 tests ✅</span>
+        <span class="hpp-metric">ISO 14224</span>
+      </div>
+    </div>
+    <div class="hero-platform-preview">
+      <div class="hpp-top">
+        <div class="hpp-name">🛡 HSEI — HSE Incident Analytics</div>
+        <span class="hpp-badge badge-hsei">Live</span>
+      </div>
+      <div class="hpp-desc">API RP 754 Tier 1–4 · NUPRC & NOSDRA aligned · 8-page process safety dashboard</div>
+      <div class="hpp-metrics">
+        <span class="hpp-metric gold">API RP 754</span>
+        <span class="hpp-metric gold">NUPRC</span>
+        <span class="hpp-metric gold">NOSDRA</span>
+        <span class="hpp-metric">29 tests ✅</span>
+      </div>
+    </div>
+    <div class="hero-platform-preview">
+      <div class="hpp-top">
+        <div class="hpp-name">🎯 HSIP — LTI Prediction</div>
+        <span class="hpp-badge badge-hsip">Live</span>
+      </div>
+      <div class="hpp-desc">Gradient Boosting + Isotonic Calibration · 30-day LTI probability · 11 departments</div>
+      <div class="hpp-metrics">
+        <span class="hpp-metric green">30-day horizon</span>
+        <span class="hpp-metric green">SCI composite</span>
+        <span class="hpp-metric">19 tests ✅</span>
+        <span class="hpp-metric">ISO 45001</span>
+      </div>
+    </div>
+    <div style="text-align:right;padding-right:4px;">
+      <a href="https://ninahenchy.github.io" style="font-size:12px;color:var(--dim);text-decoration:none;">All platforms on OPC-Alpha Offshore Facility →</a>
+    </div>
+  </div>
+
 </section>
 
 <hr class="section-divider">
@@ -488,6 +671,13 @@
       <div class="pc-body">
         <div class="pc-title">Operational Reliability & Predictive Maintenance Intelligence</div>
         <div class="pc-subtitle">Predicts equipment failure 30 days ahead across 6 critical asset types</div>
+
+        <!-- Dashboard preview image — replace src with actual screenshot -->
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:18px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;">
+          <img src="orpmi_preview.png" alt="ORPMI Dashboard Preview"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.parentElement.innerHTML='<div style=&quot;text-align:center;color:var(--dim);font-size:12px;padding:20px;&quot;>📸 Add screenshot:<br>orpmi_preview.png</div>'">
+        </div>
 
         <div class="pc-value">
           <strong>ORPMI helps Reliability Engineers move from reactive to predictive maintenance</strong> by predicting equipment failure 30 days ahead using a Random Forest model trained on 80 engineered features — vibration, temperature, pressure, efficiency, and maintenance history — aligned to ISO 14224 taxonomy.
@@ -529,6 +719,12 @@
         <div class="pc-title">HSE Incident Analytics & Process Safety Intelligence</div>
         <div class="pc-subtitle">8-page executive HSE dashboard — API RP 754, ISO 45001, NUPRC & NOSDRA aligned</div>
 
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:18px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;">
+          <img src="hsei_preview.png" alt="HSEI Dashboard Preview"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.parentElement.innerHTML='<div style=&quot;text-align:center;color:var(--dim);font-size:12px;padding:20px;&quot;>📸 Add screenshot:<br>hsei_preview.png</div>'">
+        </div>
+
         <div class="pc-value gold">
           <strong>HSEI helps HSE Managers and Operations Directors move from reactive compliance to proactive safety intelligence</strong> by embedding NUPRC and NOSDRA reporting requirements directly into the data schema — making regulatory reporting a database query, not a month-end manual exercise.
         </div>
@@ -568,6 +764,12 @@
       <div class="pc-body">
         <div class="pc-title">HSE Incident Prediction & Safety Culture Intelligence</div>
         <div class="pc-subtitle">Predicts Lost Time Injury probability 30 days ahead across 11 operational departments</div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:18px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;">
+          <img src="hsip_preview.png" alt="HSIP Dashboard Preview"
+               style="width:100%;height:100%;object-fit:cover;display:block;"
+               onerror="this.parentElement.innerHTML='<div style=&quot;text-align:center;color:var(--dim);font-size:12px;padding:20px;&quot;>📸 Add screenshot:<br>hsip_preview.png</div>'">
+        </div>
 
         <div class="pc-value green">
           <strong>HSIP helps Safety Leaders identify high-risk departments before incidents occur</strong> by combining five leading indicators into a composite Safety Culture Index (SCI) and using a calibrated Gradient Boosting model to predict 30-day LTI probability per department.
